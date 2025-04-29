@@ -54,13 +54,13 @@ inventory(products)
  //  print "Fail" next to their name. (5 pts)
 
  function studentStatus(grades){
-          for(let student in grades){
-            let scores = grades[student]
+          for(let a in grades){
+            let scores = grades[a]
 
             let average = scores.reduce((sum,score)=>sum +score,0)/scores.length
             let passStatus = average > 70 ? "Pass":"Fail"
 
-            console.log(`${student}: Average Scores = ${average} - ${passStatus}`)
+            console.log(`${a}: Average Scores = ${average} - ${passStatus}`)
           }
  }
 
@@ -74,7 +74,7 @@ inventory(products)
  studentStatus(grades)
 
  //Write a function constructor called User that takes username, email, and isActive (boolean).
- //  Create an array of users. Write a program that loops through the array 
+ // Create an array of users. Write a program that loops through the array 
  // and deactivates users who have not logged in recently (simulate this with a random isActive: false assignment) 
  // and print out the usernames of active users. (5 pts)
 
