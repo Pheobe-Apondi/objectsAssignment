@@ -99,7 +99,7 @@ inventory(products)
     if(inactiveUsers.includes(user.username))
         user.isActive = false;
 })
-users.filter(user  => {if(user.isActive)
+users.filter(user  => {if(user.isActive == true)
     console.log(user.username)})
 
  // You have an array of destination objects, each with name, distance (in km),
