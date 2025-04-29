@@ -54,13 +54,13 @@ inventory(products)
  //  print "Fail" next to their name. (5 pts)
 
  function studentStatus(grades){
-          for(let a in grades){
-            let scores = grades[a]
+          for(let grade in grades){
+            let scores = grades[grade]
 
             let average = scores.reduce((sum,score)=>sum +score,0)/scores.length
             let passStatus = average > 70 ? "Pass":"Fail"
 
-            console.log(`${a}: Average Scores = ${average} - ${passStatus}`)
+            console.log(`${grade}: Average Scores = ${average} - ${passStatus}`)
           }
  }
 
@@ -86,15 +86,17 @@ inventory(products)
  }
 
  let users = [
-    {username:"Ann",email:"ann@example.com", isActive:true},
-    {username:"alice24",email:"alice@example.com", isActive:true},
-    {username:"joan34",email:"joan@example.com", isActive:true},
-    {username:"joan",email:"joan24@example.com", isActive:true},
-    {username:"kembo",email:"kembo@example.com", isActive:true}
+   new User ("Ann","ann@example.com",true),
+   new User ("alice24","alice@example.com",true),
+  new User  ("joan34","joan@example.com",true),
+   new User ("joan","joan24@example.com", true),
+   new User ("kembo","kembo@example.com",true)
  ]
 
+ let inactiveUsers = ['Ann','joan']
+
  users.forEach(user =>{
-    if(Math.random()<0.5)
+    if(inactiveUsers.includes(user.username))
         user.isActive = false;
 })
 users.filter(user  => {if(user.isActive)
@@ -105,16 +107,13 @@ users.filter(user  => {if(user.isActive)
  //  a budget and returns all destinations the user can afford and reach within that distance.
  //  If none are found, return "No destinations available under your budget and distance". (5 pts)
 
-function perfectDestination(maxDistance,maxBudget){
+function perfectDestination(){
     let availableDestination = destinations.filter(destination => 
-        destination.distance<=maxDistance && destination.budgetRequired <= maxBudget
+        destination.distance<= 7000 && destination.budgetRequired <= 10000
     );
 
-    if(availableDestination.length >0){
-        console.log(availableDestination)
-    }else{
-        console.log("No destination available under your budget and distance")
-    }
+       let  result = availableDestination.length > 0 ?  availableDestination:  "No destination available under your budget and distance"
+             console.log(result)
      
 }
 
@@ -128,7 +127,7 @@ function perfectDestination(maxDistance,maxBudget){
 
  ]
 
- perfectDestination(destinations,3000,2500)
+ perfectDestination(destinations)
 
 
 
